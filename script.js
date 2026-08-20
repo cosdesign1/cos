@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   if(reduced||!('IntersectionObserver'in window)){reveals.forEach(e=>e.classList.add('visible'));}
   else{const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}}),{threshold:.07});reveals.forEach(e=>io.observe(e));}
 
-  document.querySelectorAll('.form-next').forEach(input=>{try{input.value=new URL('dziekujemy.html',window.location.href).href}catch(e){}});
+  document.querySelectorAll('.form-next').forEach(input=>{try{input.value=new URL('/dziekujemy/',window.location.origin).href}catch(e){}});
 
   document.querySelectorAll('.show-project').forEach(btn=>btn.addEventListener('click',()=>{
     const section=document.querySelector(`[data-project-section="${btn.dataset.project}"]`);if(!section)return;
