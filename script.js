@@ -9,8 +9,71 @@ document.addEventListener('DOMContentLoaded',()=>{
   const page=body.dataset.page;
   document.querySelectorAll('.nav a').forEach(a=>{if(a.dataset.page===page)a.classList.add('active')});
   const toggle=document.querySelector('.menu-toggle');
-  if(toggle){toggle.addEventListener('click',()=>{const open=body.classList.toggle('nav-open');toggle.setAttribute('aria-expanded',String(open));});}
-  document.querySelectorAll('.nav a').forEach(a=>a.addEventListener('click',()=>body.classList.remove('nav-open')));
+  const nav=document.querySelector('.nav');
+  let menuScrollY=0;
+
+  if(nav && !nav.querySelector('.mobile-nav-meta')){
+    nav.insertAdjacentHTML('beforeend',`
+      <div class="mobile-nav-meta">
+        <div class="mobile-nav-socials">
+          <a href="https://www.instagram.com/cos_interiors/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.facebook.com/p/COS-interiors-100088112425953/" target="_blank" rel="noopener">Facebook</a>
+        </div>
+        <div class="mobile-nav-contact">
+          <a href="tel:518394302">518 394 302</a>
+          <a href="mailto:alicjachmiel.cosinteriors@gmail.com">alicjachmiel.cosinteriors@gmail.com</a>
+        </div>
+      </div>
+    `);
+  }
+
+  const lockMenuScroll=()=>{
+    menuScrollY=window.scrollY||window.pageYOffset||0;
+    body.style.position='fixed';
+    body.style.top=`-${menuScrollY}px`;
+    body.style.left='0';
+    body.style.right='0';
+    body.style.width='100%';
+  };
+
+  const unlockMenuScroll=()=>{
+    body.style.position='';
+    body.style.top='';
+    body.style.left='';
+    body.style.right='';
+    body.style.width='';
+    window.scrollTo(0,menuScrollY);
+  };
+
+  const openMenu=()=>{
+    if(body.classList.contains('nav-open'))return;
+    lockMenuScroll();
+    body.classList.add('nav-open');
+    toggle?.setAttribute('aria-expanded','true');
+  };
+
+  const closeMenu=()=>{
+    if(!body.classList.contains('nav-open'))return;
+    body.classList.remove('nav-open');
+    toggle?.setAttribute('aria-expanded','false');
+    unlockMenuScroll();
+  };
+
+  if(toggle){
+    toggle.addEventListener('click',()=>{
+      body.classList.contains('nav-open') ? closeMenu() : openMenu();
+    });
+  }
+
+  document.querySelectorAll('.nav a').forEach(a=>a.addEventListener('click',closeMenu));
+
+  document.addEventListener('keydown',e=>{
+    if(e.key==='Escape'&&body.classList.contains('nav-open'))closeMenu();
+  });
+
+  window.addEventListener('resize',()=>{
+    if(window.innerWidth>820&&body.classList.contains('nav-open'))closeMenu();
+  });
 
   const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const reveals=document.querySelectorAll('.reveal');
