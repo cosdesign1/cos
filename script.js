@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded',()=>{
         </div>
         <div class="mobile-nav-contact">
           <a href="tel:518394302">518 394 302</a>
-          <a href="mailto:alicjachmiel.cosinteriors@gmail.com">alicjachmiel.cosinteriors@gmail.com</a>
+          <a href="mailto:biuro@cosinteriors.pl">biuro@cosinteriors.pl</a>
         </div>
       </div>
     `);
@@ -120,6 +120,22 @@ document.addEventListener('DOMContentLoaded',()=>{
   close?.addEventListener('click',closeLb);prev?.addEventListener('click',()=>{index=(index-1+current.length)%current.length;setImage()});next?.addEventListener('click',()=>{index=(index+1)%current.length;setImage()});
   lb?.addEventListener('click',e=>{if(e.target===lb)closeLb()});
   document.addEventListener('keydown',e=>{if(!lb?.classList.contains('active'))return;if(e.key==='Escape')closeLb();if(e.key==='ArrowLeft'){index=(index-1+current.length)%current.length;setImage()}if(e.key==='ArrowRight'){index=(index+1)%current.length;setImage()}});
+
+  const galleryId=location.hash.replace('#','');
+  if(galleryId){
+    const section=document.querySelector(`[data-project-section="${galleryId}"]`);
+    if(section){
+      const showBtn=section.querySelector('.show-project');
+      if(showBtn&&!section.classList.contains('is-open'))showBtn.click();
+      const items=[...document.querySelectorAll(`.gallery-item[data-gallery="${galleryId}"]`)];
+      if(items.length&&lb){
+        setTimeout(()=>{
+          current=items;index=0;setImage();lb.classList.add('active');lb.setAttribute('aria-hidden','false');body.style.overflow='hidden';
+          section.scrollIntoView({block:'start'});
+        },50);
+      }
+    }
+  }
 
   const questionSets=[
     {el:document.getElementById('rotatingQuestion'),dots:[...document.querySelectorAll('.rotating-question-v7 + .question-dots i, .survey-question-v7 .question-dots i')]},
