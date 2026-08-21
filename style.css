@@ -2565,3 +2565,18 @@ a.survey-link:not(.social-row-v5):not(.start-step){color:var(--moss);}
     top:22px!important;
   }
 }
+
+
+/* =========================================================
+   COS — DESKTOP NAV FIX
+   Mobile-only socials/contact must never appear in desktop nav.
+   ========================================================= */
+.mobile-nav-meta{
+  display:none!important;
+}
+
+@media(max-width:820px){
+  .mobile-nav-meta{
+    display:block!important;
+  }
+}
