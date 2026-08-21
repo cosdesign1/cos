@@ -1,5 +1,26 @@
 
 document.addEventListener('DOMContentLoaded',()=>{
+
+  // COS favicon — only browser tab icon; does not alter the page logo.
+  (() => {
+    const href = '/favicon.png?v=3';
+    let icon = document.querySelector('link[rel~="icon"]');
+    if (!icon) {
+      icon = document.createElement('link');
+      icon.rel = 'icon';
+      document.head.appendChild(icon);
+    }
+    icon.type = 'image/png';
+    icon.href = href;
+
+    let apple = document.querySelector('link[rel="apple-touch-icon"]');
+    if (!apple) {
+      apple = document.createElement('link');
+      apple.rel = 'apple-touch-icon';
+      document.head.appendChild(apple);
+    }
+    apple.href = href;
+  })();
   const body=document.body;
   const intro=document.getElementById('siteIntro');
   if(intro){
