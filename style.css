@@ -1560,6 +1560,7 @@ a.survey-link:not(.social-row-v5):not(.start-step){color:var(--moss);}
   }
   .home-hero .hero-copy-v5 .hero-actions{justify-content:flex-end!important;}
   .home-hero .hero-copy-v5 .hero-line-accent{margin-left:auto!important;}
+  .home-hero .hero-copy-v5 .hero-sub{margin-left:auto!important;}
   .home-hero .hero-overlay{
     background:linear-gradient(270deg,rgba(30,24,21,.78) 0%,rgba(45,34,29,.54) 30%,rgba(45,34,29,.14) 58%,rgba(45,34,29,0) 80%)!important;
   }
