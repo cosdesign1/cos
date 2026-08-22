@@ -1541,11 +1541,9 @@ a.survey-link:not(.social-row-v5):not(.start-step){color:var(--moss);}
 
 
 /* === FINAL HERO POSITION + GOOGLE REVIEWS REDESIGN === */
-/* Hero: copy mirrored to bottom-right on desktop, image flipped to match. */
+/* Hero: copy sits bottom-right on desktop; visuals stay in their original orientation. */
 @media (min-width:821px){
   .home-hero{position:relative!important;}
-  .home-hero .hero-slide{transform:scaleX(-1) scale(1.01)!important;}
-  .home-hero .hero-slide.is-active{transform:scaleX(-1) scale(1.035)!important;}
   .home-hero .hero-copy-v5{
     position:absolute!important;
     right:5vw!important;
