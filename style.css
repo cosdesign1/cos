@@ -2584,3 +2584,25 @@ a.survey-link:not(.social-row-v5):not(.start-step){color:var(--moss);}
     display:block!important;
   }
 }
+
+/* === COS CLIENT COPY/LAYOUT UPDATE 25-08-2026 === */
+/* Only the homepage location heading/copy is stacked; city cards remain untouched. */
+.seo-locations-head.seo-locations-head-stacked{
+  grid-template-columns:1fr!important;
+  gap:18px!important;
+  align-items:start!important;
+}
+.seo-locations-head.seo-locations-head-stacked h2{
+  max-width:1400px!important;
+}
+.seo-locations-head.seo-locations-head-stacked .seo-locations-side{
+  border-left:0!important;
+  padding:0!important;
+  max-width:100%!important;
+}
+.seo-locations-head.seo-locations-head-stacked .seo-locations-side p{
+  max-width:100%!important;
+  font-size:13px!important;
+  line-height:1.8!important;
+}
+
