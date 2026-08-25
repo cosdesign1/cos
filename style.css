@@ -2606,3 +2606,19 @@ a.survey-link:not(.social-row-v5):not(.start-step){color:var(--moss);}
   line-height:1.8!important;
 }
 
+
+/* === COS PROJECTS / LOKALIZACJE — COMPACT DESKTOP PATCH 25-08-2026 === */
+/* Scope is intentionally limited to the portfolio/location section on Projekty. */
+@media (min-width:821px){
+  .subpage-v7[data-page="projekty"] .projects-seo-intro-v10{
+    padding-top:72px!important;
+    padding-bottom:64px!important;
+  }
+
+  .subpage-v7[data-page="projekty"] .projects-seo-intro-v10 h2{
+    font-size:clamp(48px,5.2vw,88px)!important;
+    line-height:.90!important;
+    max-width:1380px!important;
+    margin:14px 0 24px!important;
+  }
+}
