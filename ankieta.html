@@ -59,14 +59,10 @@ permalink: /ankieta/
 <input name="_template" type="hidden" value="table"/>
 <input name="_captcha" type="hidden" value="false"/>
 <input class="form-next" name="_next" type="hidden" value=""/>
-<label><span>Imię i nazwisko</span><input name="Imię i nazwisko" required="" type="text"/></label>
-<label><span>E-mail</span><input name="E-mail" required="" type="email"/></label>
-<label><span>Telefon</span><input name="Telefon" required="" type="tel"/></label>
-<label><span>Metraż wnętrza</span><input name="Metraż" placeholder="np. 62 m²" type="text"/></label>
-<label><span>Lokalizacja inwestycji</span><input name="Lokalizacja" placeholder="np. Olkusz / Kraków / Warszawa" type="text"/></label>
-<label><span>Kiedy chcesz zacząć?</span><select name="Termin"><option value="">Wybierz termin</option><option>Jak najszybciej</option><option>W ciągu 1–3 miesięcy</option><option>W ciągu 3–6 miesięcy</option><option>Jeszcze nie wiem</option></select></label>
-<label class="full"><span>Jaki zakres Cię interesuje?</span><select name="Zakres"><option value="">Wybierz zakres</option><option>Projekt koncepcyjny</option><option>Projekt kompleksowy</option><option>Nadzór autorski</option><option>Nie wiem — proszę o podpowiedź</option></select></label>
-<label class="full"><span>Opisz krótko wnętrze</span><textarea name="Opis wnętrza" placeholder="Napisz, czego dotyczy projekt, na jakim etapie jest inwestycja i co jest dla Ciebie najważniejsze." rows="6"></textarea></label>
+<label><span>Imię</span><input name="Imię" required="" autocomplete="given-name" type="text"/></label>
+<label><span>E-mail</span><input name="E-mail" required="" autocomplete="email" type="email"/></label>
+<label class="full"><span>Telefon</span><input name="Telefon" required="" autocomplete="tel" inputmode="tel" type="tel"/></label>
+<label class="full"><span>Opowiedz krótko o swoim wnętrzu</span><textarea name="Opis wnętrza" placeholder="Napisz krótko, czego dotyczy projekt i co jest dla Ciebie najważniejsze." required="" rows="6"></textarea></label>
 <button class="btn btn-survey full" type="submit">Wyślij ankietę</button>
 </form>
 </section>
