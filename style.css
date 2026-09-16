@@ -2622,3 +2622,20 @@ a.survey-link:not(.social-row-v5):not(.start-step){color:var(--moss);}
     margin:14px 0 24px!important;
   }
 }
+
+
+/* === COS CLIENT HEADER FIX 16-09-2026 ===
+   Homepage navigation is readable immediately: same beige treatment as after scroll. */
+.home-start .site-header:not(.is-scrolled){
+  background:rgba(237,231,219,.96)!important;
+  border-bottom:1px solid rgba(77,52,45,.14)!important;
+  box-shadow:0 8px 34px rgba(77,52,45,.06)!important;
+  backdrop-filter:blur(18px)!important;
+  -webkit-backdrop-filter:blur(18px)!important;
+}
+.home-start .site-header:not(.is-scrolled) .nav a{
+  color:var(--mahogany)!important;
+  text-shadow:none!important;
+}
+.home-start .site-header:not(.is-scrolled) .brand .brand-logo-dark{opacity:1!important;}
+.home-start .site-header:not(.is-scrolled) .brand .brand-logo-light{opacity:0!important;}
